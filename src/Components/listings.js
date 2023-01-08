@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  Map,
+
   TileLayer,
   useMap,
   Marker,
