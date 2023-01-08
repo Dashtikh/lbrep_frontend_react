@@ -26,7 +26,7 @@ import houseIconPng from "./Assets/MapIcons/house.png";
 import apartmentIconPng from "./Assets/MapIcons/apartment.png";
 import officeIconPng from "./Assets/MapIcons/office.png";
 import { Icon } from "leaflet";
-import img from "./Assets/city.jpg";
+
 import myListings from "./Assets/Data/Dummydata";
 import { makeStyles } from "@mui/styles";
 import { border } from "@mui/system";
@@ -278,7 +278,7 @@ function Listing() {
                     </Marker>
                   );
                 })}
-                <Marker position={[latitude, longitude]}>
+                {/* <Marker position={[latitude, longitude]}>
                   <Popup>
                     <Typography variant="h4">A Title</Typography>
                     <img
@@ -290,7 +290,7 @@ function Listing() {
                       See Details
                     </Button>
                   </Popup>
-                </Marker>
+                </Marker> */}
               </MapContainer>
             </div>
           </AppBar>
