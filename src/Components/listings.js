@@ -110,7 +110,7 @@ function Listing() {
     async function GetAllListings() {
       try {
         const response = await Axios.get(
-          "http://127.0.0.1:8000/api/listings/",
+          "https://api.amlakiproject.ir/api/listings/",
           {
             cancelToken: source.token,
           }

@@ -24,7 +24,6 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 const useStyles = makeStyles({
   cardContainer: {
     overflow: 'auto',
-    height:'40rem',
     scrollbarWidth: "none" /* Firefox */,
     "&::-webkit-scrollbar": {
       display: "none" /* Safari and Chrome */,
@@ -107,7 +106,7 @@ function AgencyDetail() {
     async function GetProfileInfo() {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/profiles/${params.id}/`
+          `https://api.amlakiproject.ir/api/profiles/${params.id}/`
         );
         console.log(response.data);
         dispatch({
@@ -201,8 +200,8 @@ function AgencyDetail() {
                   <CardMedia
                     sx={{ height: 140 }}
                     image={
-                      `http://localhost:8000/${listing.picture1}`
-                        ? `http://localhost:8000/${listing.picture1}`
+                      `${listing.picture1}`
+                        ? `${listing.picture1}`
                         : defaultProfilePicture
                     }
                     title="عکس لیست"
@@ -219,12 +218,12 @@ function AgencyDetail() {
                   </CardContent>
                   <CardActions>
                     {listing.property_status === "Sale"
-                      ? `${enToPersian[listing.listing_type]}: $ ${listing.price
+                      ? `${enToPersian[listing.listing_type]}:  ${listing.price
                           .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${" "} تومان` 
                       : `${enToPersian[listing.listing_type]}: $ ${listing.price
                           .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}/${
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}تومانx/${
                           enToPersian[listing.rental_frequency]
                         }`}
                   </CardActions>

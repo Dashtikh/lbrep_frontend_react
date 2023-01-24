@@ -72,7 +72,7 @@ function Agencies() {
   useEffect(() => {
     async function GetAgencies() {
       try {
-        const response = await Axios.get("http://localhost:8000/api/profiles/");
+        const response = await Axios.get("https://api.amlakiproject.ir/api/profiles/");
         console.log(response.data);
         dispatch({
           type: "catchAgencies",

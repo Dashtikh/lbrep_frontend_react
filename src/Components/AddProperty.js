@@ -2088,7 +2088,7 @@ function AddProperty() {
     async function GetProfileInfo() {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/profiles/${GlobalState.userId}/`
+          `https://api.amlakiproject.ir/api/profiles/${GlobalState.userId}/`
         );
         console.log(response.data);
         dispatch({
@@ -2167,7 +2167,7 @@ function AddProperty() {
         formData.append("seller", GlobalState.userId);
         try {
           const response = await Axios.post(
-            "http://127.0.0.1:8000/api/listings/create/",
+            "https://api.amlakiproject.ir/api/listings/create/",
             formData
           );
           console.log(response.data);

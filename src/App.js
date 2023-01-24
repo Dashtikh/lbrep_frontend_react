@@ -16,6 +16,7 @@ import Profile from "./Components/Profile";
 import Agencies from "./Components/Agencies";
 import AgencyDetail from "./Components/AgencyDetail";
 import ListingDetail from "./Components/ListingDetail";
+import AccountCreated from "./Components/AccountCreated";
 function App() {
   const initialState = {
     userUsername: localStorage.getItem("theUserUsername"),
@@ -57,6 +58,20 @@ function App() {
     }
   }, [state.userIsLogged]);
 
+  // useEffect(() => {
+  //   if (localStorage.getItem("theUserId")) {
+  //     console.log("KIR")
+  //     dispatch({
+  //       type: "userSignsIn",
+  //       usernameInfo: localStorage.getItem("theUserUsername"),
+  //       emailInfo: localStorage.getItem("theUserEmail"),
+  //       idInfo: localStorage.getItem("theUserId"),
+  //       userToken: localStorage.getItem("theUserToken"),
+  //       userIsLogged: true
+  //     });
+  //   }
+  // }, []);
+
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
@@ -72,6 +87,7 @@ function App() {
               <Route path="/addproperty" element={<AddProperty />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/agencies" element={<Agencies />} />
+              <Route path="/created" element={<AccountCreated />} />
               <Route path="/agencies/:id" element={<AgencyDetail />} />
               <Route path="/listings/:id" element={<ListingDetail />} />
             </Routes>

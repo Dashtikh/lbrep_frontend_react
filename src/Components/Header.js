@@ -95,7 +95,7 @@ function Header() {
     if (confrimLogout) {
       try {
         const response = await Axios.post(
-          "http://localhost:8000/api_auth_djoser/token/logout/",
+          "https://api.amlakiproject.ir/api_auth_djoser/token/logout/",
           GlobalState.userToken,
           { headers: { Authorization: "token ".concat(GlobalState.userToken) } }
         );
@@ -111,7 +111,7 @@ function Header() {
   useEffect(() => {
     if (openSnack) {
       setTimeout(() => {
-        navigate(0);
+        navigate("/");
       }, 1500);
     }
   }, [openSnack]);

@@ -149,7 +149,7 @@ function ListingDetail() {
       if (state.listingInfo) {
         try {
           const response = await Axios.get(
-            `http://localhost:8000/api/profiles/${state.listingInfo.seller}/`
+            `https://api.amlakiproject.ir/api/profiles/${state.listingInfo.seller}/`
           );
           console.log(response.data);
           dispatch({
@@ -176,7 +176,7 @@ function ListingDetail() {
     async function GetListingInfo() {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/listings/${params.id}/`
+          `https://api.amlakiproject.ir/api/listings/${params.id}/`
         );
         console.log(response.data);
         dispatch({
@@ -256,7 +256,7 @@ function ListingDetail() {
     if (confirmDelete) {
       try {
         const response = await Axios.delete(
-          `http://localhost:8000/api/listings/${params.id}/delete/`
+          `https://api.amlakiproject.ir/api/listings/${params.id}/delete/`
         );
         console.log(response.data);
         dispatch({ type: "openTheSnack" });
@@ -296,7 +296,7 @@ function ListingDetail() {
                           src={picture}
                           style={{
                             width: "470px",
-                            height: "470px",
+                            height: '470px',
                             borderRadius: "20px",
                           }}
                         />
@@ -722,8 +722,8 @@ function ListingDetail() {
               <div
                 style={{ display: "flex", direction: "row", marginTop: "7rem" }}
               >
-                {console.log(state)}
-                {GlobalState.userId === state.sellerProfileInfo.seller ? (
+                {console.log(GlobalState)}
+                {GlobalState.userId == state.sellerProfileInfo.seller ? (
                   <>
                     <Button
                       variant="contained"

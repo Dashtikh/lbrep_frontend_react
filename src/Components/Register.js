@@ -195,7 +195,7 @@ function Register() {
       async function SingUp() {
         try {
           const response = await Axios.post(
-            "http://localhost:8000/api_auth_djoser/users/",
+            "https://api.amlakiproject.ir/api_auth_djoser/users/",
             {
               username: state.usernameValue,
               email: state.emailValue,

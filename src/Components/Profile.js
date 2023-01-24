@@ -17,6 +17,12 @@ import {
   CircularProgress,
 } from "@mui/material";
 const useStyles = makeStyles({
+  welcomeForm: {
+    borderRadius: '20px',
+    backdropFilter: "blur(6px)",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    padding: "3rem",
+  },
   formContainer: {
     width: "1000px",
     marginLeft: "auto",
@@ -27,6 +33,8 @@ const useStyles = makeStyles({
 
     padding: "3rem",
     overflow: "auto",
+    display: "flex",
+    flexDirection: "column",
   },
   loginBtn: {
     backgroundColor: "#1976d2",
@@ -95,7 +103,7 @@ function Profile() {
     async function GetProfileInfo() {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/profiles/${GlobalState.userId}/`
+          `https://api.amlakiproject.ir/api/profiles/${GlobalState.userId}/`
         );
         console.log(response.data);
         dispatch({
@@ -143,16 +151,19 @@ function Profile() {
       state.userProfile.phoneNumber === ""
     ) {
       return (
+        <div className={classes.welcomeForm}>
         <Typography
           variant="h5"
           style={{ textAlign: "center", marginTop: "1rem" }}
         >
           خوش آمدید{" "}
-          <span style={{ color: "green", fontWeight: "bolder" }}>
+          <span style={{ color: "black", fontWeight: "bolder" }}>
             {GlobalState.userUsername}
           </span>
-          , please submit this form below to update your profile.
+          <br/>
+          لطفا فرم زیر را برای به‌روز رسانی پروفایل خود، کامل کنید
         </Typography>
+        </div>
       );
     } else {
       return (
@@ -162,9 +173,7 @@ function Profile() {
             item
             xs={6}
             style={{
-              width: "100%",
-              marginRight: '50%',
-              
+              width: "100%",              
               borderRadius: "20px",
               backdropFilter: "blur(6px)",
               backgroundColor: "rgba(255, 255, 255, 0.8)",
@@ -174,7 +183,7 @@ function Profile() {
           >
             <Grid xs={12} item style={{textAlign: 'center'}}>
               <img
-                style={{ height: "15rem", width: "13rem", color: 'black' }}
+                style={{ height: "15rem", color: 'black' }}
                 src={
                   state.userProfile.profilePic !== null
                     ? state.userProfile.profilePic
@@ -236,7 +245,7 @@ function Profile() {
           className={classes.formContainer}
           style={{alignItems: 'center'}}
         >
-          <div  style={{ width: "50%", marginLeft: 'auto', marginLe: 'auto' }} item>
+          <div  style={{ width: "50%" }} item>
             {WelcomeDisplay()}
           </div>
           <div style={{ width: "100%" }} xs={12} item>
