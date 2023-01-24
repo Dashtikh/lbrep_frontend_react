@@ -17,6 +17,7 @@ import Agencies from "./Components/Agencies";
 import AgencyDetail from "./Components/AgencyDetail";
 import ListingDetail from "./Components/ListingDetail";
 import AccountCreated from "./Components/AccountCreated";
+import Activation from "./Components/Activation";
 function App() {
   const initialState = {
     userUsername: localStorage.getItem("theUserUsername"),
@@ -83,6 +84,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/activate/:uid/:token" element={<Activation />} />
               <Route path="/listings" element={<Listings />} />
               <Route path="/addproperty" element={<AddProperty />} />
               <Route path="/profile" element={<Profile />} />
