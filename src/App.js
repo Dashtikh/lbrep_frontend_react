@@ -61,7 +61,7 @@ function App() {
 
   // useEffect(() => {
   //   if (localStorage.getItem("theUserId")) {
-  //     console.log("KIR")
+  //    
   //     dispatch({
   //       type: "userSignsIn",
   //       usernameInfo: localStorage.getItem("theUserUsername"),

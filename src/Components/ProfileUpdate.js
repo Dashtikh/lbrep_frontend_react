@@ -188,7 +188,7 @@ function ProfileUpdate(props) {
           <Grid item container style={{ marginTop: "1rem" }}>
             <TextField
               id="agencyName"
-              label="نام ملک*"
+              label="نام آژانس*"
               variant="outlined"
               fullWidth
               value={state.agencyNameValue}

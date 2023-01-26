@@ -20,7 +20,7 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material";
-import { FlashAuto } from "@mui/icons-material";
+import { FlashAuto, FunctionsSharp } from "@mui/icons-material";
 import { width } from "@mui/system";
 const useStyles = makeStyles({
   fullPage: {
@@ -68,6 +68,22 @@ function Activation() {
   const classes = useStyles();
   const navigate = useNavigate();
 
+  async function ActivationHandler() {
+    try {
+      Axios.post(
+        "https://api.amlakiproject.ir/api_auth_djoser/users/activation/",
+        {
+          uid: params.uid,
+          token: params.token,
+        }
+      ).then((res) => {
+        navigate("/login");
+      });
+    } catch (e) {
+      console.log(e.response);
+    }
+  }
+
   return (
     <div className={classes.fullPage}>
       <Grid item container>
@@ -78,6 +94,7 @@ function Activation() {
           <Button
             variant="contained"
             style={{ backgroundColor: "black", marginTop: "1rem" }}
+            onClick={ActivationHandler}
           >
             فعال سازی
           </Button>
