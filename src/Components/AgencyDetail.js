@@ -23,13 +23,13 @@ import {
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 const useStyles = makeStyles({
   cardContainer: {
-    overflow: 'auto',
+    overflow: "auto",
     scrollbarWidth: "none" /* Firefox */,
     "&::-webkit-scrollbar": {
       display: "none" /* Safari and Chrome */,
     },
   },
-  
+
   fullPage: {
     backgroundImage: `url(${login})`,
     width: "100%",
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     flexDirection: "column",
-    paddingTop: 64
+    paddingTop: 10,
   },
   profileCard: {
     position: "relative",
@@ -56,9 +56,8 @@ const useStyles = makeStyles({
     borderRadius: "20px",
     backdropFilter: "blur(6px)",
     backgroundColor: "rgba(255, 255, 255, 0.6)",
-    height: '20rem',
-    width: '16rem',
-    
+    height: "20rem",
+    width: "16rem",
   },
 });
 
@@ -136,7 +135,7 @@ function AgencyDetail() {
   }
   return (
     <div className={classes.fullPage}>
-      <div>
+      <div className={classes.cardContainer}>
         <div className={classes.profileCard}>
           <Grid xs={6} item>
             <img
@@ -181,57 +180,62 @@ function AgencyDetail() {
             {state.userProfile.bio}
           </Grid>
         </div>
-          <div className={classes.cardContainer}>
-        <Grid
-          container
-          justifyContent="space-around"
-          spacing={2}
-          xs={12}
-          
-        >
-          {state.userProfile.sellerListings.map((listing) => {
-            return (
-              <Grid
-                key={listing.id}
-                item
-                style={{ marginTop: "1rem", maxWidth: "20rem", paddingLeft: 0 }}
-              >
-                <Card className={classes.cardStyle}>
-                  <CardMedia
-                    sx={{ height: 140 }}
-                    image={
-                      `${listing.picture1}`
-                        ? `${listing.picture1}`
-                        : defaultProfilePicture
-                    }
-                    title="عکس لیست"
-                    onClick={() => navigate(`/listings/${listing.id}`)}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {listing.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {listing.description.substring(0, 100)} ...
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    {listing.property_status === "Sale"
-                      ? `${enToPersian[listing.listing_type]}:  ${listing.price
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${" "} تومان` 
-                      : `${enToPersian[listing.listing_type]}: $ ${listing.price
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}تومانx/${
-                          enToPersian[listing.rental_frequency]
-                        }`}
-                  </CardActions>
-                </Card>
-              </Grid>
-            );
-          })}
-        </Grid>
+        <div className={classes.cardContainer}>
+          <Grid container justifyContent="space-around" spacing={2} xs={12}>
+            {state.userProfile.sellerListings.map((listing) => {
+              return (
+                <Grid
+                  key={listing.id}
+                  item
+                  style={{
+                    marginTop: "1rem",
+                    maxWidth: "20rem",
+                    paddingLeft: 0,
+                  }}
+                >
+                  <Card className={classes.cardStyle}>
+                    <CardMedia
+                      sx={{ height: 140 }}
+                      image={
+                        `${listing.picture1}`
+                          ? `${listing.picture1}`
+                          : defaultProfilePicture
+                      }
+                      title="عکس لیست"
+                      onClick={() => navigate(`/listings/${listing.id}`)}
+                      style={{ cursor: "pointer" }}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {listing.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {listing.description.substring(0, 100)} ...
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      {listing.property_status === "Sale"
+                        ? `${
+                            enToPersian[listing.listing_type]
+                          }:  ${listing.price
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${" "} تومان`
+                        : `${
+                            enToPersian[listing.listing_type]
+                          }:  ${listing.price
+                            .toString()
+                            .replace(
+                              /\B(?=(\d{3})+(?!\d))/g,
+                              ","
+                            )}${" "}تومان/${
+                            enToPersian[listing.rental_frequency]
+                          }`}
+                    </CardActions>
+                  </Card>
+                </Grid>
+              );
+            })}
+          </Grid>
         </div>
       </div>
     </div>
