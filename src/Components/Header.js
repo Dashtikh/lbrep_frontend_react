@@ -111,7 +111,7 @@ function Header() {
   useEffect(() => {
     if (openSnack) {
       setTimeout(() => {
-        navigate("/");
+        navigate(0);
       }, 1500);
     }
   }, [openSnack]);

@@ -25,8 +25,8 @@ import { width } from "@mui/system";
 const useStyles = makeStyles({
   fullPage: {
     backgroundImage: `url(${login})`,
-    width: '100%',
-    height: 'calc(100vh - 64px)',
+    width: "100%",
+    height: "calc(100vh - 64px)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -41,7 +41,7 @@ const useStyles = makeStyles({
     padding: "5rem 3rem",
     backdropFilter: "blur(6px)",
     backgroundColor: "rgba(255, 255, 255, 0.7)",
-    borderRadius: 20
+    borderRadius: 20,
   },
   loginBtn: {
     backgroundColor: "black",
@@ -272,15 +272,15 @@ function Login() {
             </span>
           </Typography>
         </Grid>
-        <Snackbar
-          open={state.openSnack}
-          message="با موفقیت وارد شدید!"
-          anchorOrigin={{
-            vertical: "buttom",
-            horizontal: "center",
-          }}
-        />
       </div>
+      <Snackbar
+        open={state.openSnack}
+        message="با موفقیت وارد شدید!"
+        anchorOrigin={{
+          vertical: "buttom",
+          horizontal: "center",
+        }}
+      />
     </div>
   );
 }

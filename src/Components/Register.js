@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "3rem 5rem",
-    borderRadius: '20px',
+    borderRadius: "20px",
     backdropFilter: "blur(6px)",
     backgroundColor: "rgba(255, 255, 255, 0.7)",
     padding: "3rem",
@@ -409,15 +409,15 @@ function Register() {
             </span>
           </Typography>
         </Grid>
-        <Snackbar
-          open={state.openSnack}
-          message="اکانت کاربری شما با موفقیت ساخته شد!"
-          anchorOrigin={{
-            vertical: "buttom",
-            horizontal: "center",
-          }}
-        />
       </div>
+      <Snackbar
+        open={state.openSnack}
+        message="اکانت کاربری شما با موفقیت ساخته شد!"
+        anchorOrigin={{
+          vertical: "buttom",
+          horizontal: "center",
+        }}
+      />
     </div>
   );
 }
