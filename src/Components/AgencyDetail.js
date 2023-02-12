@@ -28,6 +28,9 @@ const useStyles = makeStyles({
     "&::-webkit-scrollbar": {
       display: "none" /* Safari and Chrome */,
     },
+    width: "60%",
+    display: 'initial'
+
   },
 
   fullPage: {

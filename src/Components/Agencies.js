@@ -40,6 +40,7 @@ const useStyles = makeStyles({
     "&::-webkit-scrollbar": {
       display: "none" /* Safari and Chrome */,
     },
+    width: '70%'
   },
   
   cardStyle: {
